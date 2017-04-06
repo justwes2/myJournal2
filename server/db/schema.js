@@ -12,6 +12,7 @@ db.once('open', () => {
 })
 
 const Schema = mongoose.Schema
+const ObjectId = Schema.ObjectId
 
 const KeywordSchema = new Schema({
   word: String,
@@ -21,10 +22,11 @@ const KeywordSchema = new Schema({
   disgust: Number,
   anger: Number
 })
+
 const EntrySchema = new Schema({
   date: String,
   text: String,
-  keywords: [KeywordSchema]
+  keywords: [ {type: Schema.ObjectId, ref: "Entry"} ]
 })
 
 const Keyword = mongoose.model("Keyword", KeywordSchema)
