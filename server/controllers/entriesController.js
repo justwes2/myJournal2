@@ -9,7 +9,7 @@ const entriesController = {
     })
   }
   show(req) {
-    Entry.findOne({name:req.text}, (err, entry) => {
+    Entry.findOne({name:req.title}, (err, entry) => {
       //do the thing not sure what
     })
   }
