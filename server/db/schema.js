@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/entries')
 
 const db = mongoose.connection
+mongoose.Promise = global.Promise
 
 db.on('error', err => {
   console.log(err);
